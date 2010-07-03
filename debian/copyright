@@ -1,0 +1,144 @@
+This work was packaged for Debian by:
+
+    Andrea Colangelo <warp10@ubuntu.com> on Sat, 03 Jul 2010 11:08:06 +0200
+
+It was downloaded from:
+
+   http://carmen.sourceforge.net/ 
+
+Upstream Authors:
+
+   Jared Glover <jglov@mit.edu>
+   Dirk Haehnel <dirk.haehnel@intel.com>
+   Michael Montemerlo <mmde@stanford.edu>
+   Nicholas Roy <nickroy@mit.edu>
+   Cyrill Stachniss <stachnis@informatik.uni-freiburg.de>
+   Sebastian Thrun <thrun@stanford.edu>
+
+   IPC is the work of and owned by:
+      Reid Simmons <reids@cs.cmu.edu>
+      Christopher Fedor
+
+   The model learner is the work of and owned by:
+      Austin Eliazar <eliazar@cs.duke.edu>
+      Ron Parr <parr@cs.duke.edu>
+
+   Contributors:
+      Greg Armstrong
+      Xinyu Ao
+      Jeff Biseda
+      Charlie Garrod
+      Giorgio Grisetti
+      Nell Hoffman
+      Christian Martin
+      Emilie Ann Phillips
+      Andy Rubin
+      Rudi Triebel
+
+   The CARMEN logo artwork created by:
+      Christian Plagemann 
+
+Copyright:
+
+   Copyright © 2002 Michael Montemerlo, Nicholas Roy, Sebastian Thrun,
+   Dirk Haehnel, Cyrill Stachniss, and Jared Glover
+
+License:
+
+   This package is free software; you can redistribute it and/or modify
+   it under the terms of the GNU General Public License version 2 (or, at your
+   option, any later version) as published by the Free Software Foundation.
+
+    This package is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this package; if not, write to the Free Software
+    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
+
+On Debian systems, the complete text of the GNU General
+Public License version 2 can be found in `/usr/share/common-licenses/GPL-2'.
+
+Code in src/base/x34000_base is a modification of the DRobot daemon for
+the XR4000 Robot released by David Austin under the GNU General Public License
+(see above). His code in turn, was based on code now released by Nomadic
+Technologies under the GPL as well. This code was released with the following
+copyright statement:
+
+   Copyright (c) 1996, Nomadic Technologies, Inc.
+   
+   The contents of this  file is copyrighted by  Nomadic Technologies,
+   Inc, and is protected by United States copyright laws. You may make
+   as  many copies   of  the software   as  deemed  necessary  for the
+   effective programming of the Nomad  series robots provided that all
+   copyright and other proprietary   notices are reproduced  in  their
+   entirety.
+  
+The original module was reverse engineered by David Austin
+(d.austin@computer.org).
+
+Further modifications to the module were made by me, Mike Montemerlo
+(mmde@cs.cmu.edu).
+
+src/camera/quickcam/ccvt* are
+
+    Copyright © 2002 Nemosoft Unv.
+
+and are licensed under the terms of GNU GPL version 2 (see above) or any
+later version.
+
+src/camera/quickcam/pwc-ioctl.h is
+
+    Copyright © 2001-2003 Nemosoft Unv.
+
+and is licensed under the terms of GNU GPL version 2 (see above) or any
+later version.
+
+src/imu/imu_interface.h and src/laser-new/laser{_interface.h,_messagers.h,
+_static_messages.h} are
+
+   Copyright © 2002 Michael Montemerlo, Nicholas Roy, and Sebastian Thrun
+
+and are licensed under the terms of GNU GPL version 2 (see above) or any
+later version.
+
+src/ipc/{basics.h,behaviors*,central*,com*,data*,dispatch*,formatters*,
+hash*,idtable*,key*,lex*,libc.h,list*,logging*,mod*,msgTap*,parseFmttrs*,
+primFmttrs*,printData*,recvMsg*,reg*,res*,sendMsg*,tca*,tcerror*,tcModError.i}
+are:
+
+   Copyright © 1991 Christopher Fedor and Reid Simmons
+
+AND HAVE NO LICENSE INFORMATION
+
+src/ipc/global* HAS NO COPYRIGHT AND NO LICENSE INFORMATION
+
+src/ipc/{ipc{.c,.h,Lisp.c,Priv.h},marshall.c,queryResponse.c} are
+
+   Copyright © 1996 Reid Simmons
+
+AND HAVE NO LICENSE INFORMATION
+
+src/ipc/multiThread* are
+
+   Copyright © 2001 Reid Simmons.
+
+AND HAVE NO LICENSE INFORMATION
+
+src/ipc/{strList*,timer.c} are 
+
+   Copyright © 1997 Reid Simmons.
+
+AND HAVE NO LICENSE INFORMATION
+
+The Debian packaging is:
+
+    Copyright © 2010 Andrea Colangelo <warp10@ubuntu.com>
+
+you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
