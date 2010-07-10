@@ -1,18 +1,43 @@
 Source: carmen
-Section: unknown
-Priority: extra
+Section: misc
+Priority: optional
 Maintainer: Andrea Colangelo <warp10@ubuntu.com>
 Build-Depends: debhelper (>= 7)
-Standards-Version: 3.8.3
-Homepage: <insert the upstream URL, if relevant>
+Standards-Version: 3.9.0
+Homepage: http://carmen.sourceforge.net/
 
 Package: carmen
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Recommends: carmen-data
+Suggests: carmen-doc
+Description: The Carnegie Mellon Robot Navigation Toolkit
+ CARMEN is an open-source collection of software for mobile robot control.
+ It is modular software designed to provide basic navigation primatives
+ including: base and sensor control, logging, obstacle avoidance,
+ localization, path planning, and mapping.
+
+Package: carmen-data
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Suggests: carmen, carmen-doc
+Description: Data files for CARMEN
+ This package contains a few maps to be used with CARMEN.
+ .
+ CARMEN is an open-source collection of software for mobile robot control.
+ It is modular software designed to provide basic navigation primatives
+ including: base and sensor control, logging, obstacle avoidance,
+ localization, path planning, and mapping.
 
 Package: carmen-doc
+Section: doc
 Architecture: all
-Description: documentation for carmen
- <insert long description, indented with spaces>
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Suggests: carmen, carmen-data
+Description: Documentation for CARMEN
+ This packages provide some documentation for CARMEN.
+ .
+ CARMEN is an open-source collection of software for mobile robot control.
+ It is modular software designed to provide basic navigation primatives
+ including: base and sensor control, logging, obstacle avoidance,
+ localization, path planning, and mapping. 
