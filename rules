@@ -8,5 +8,5 @@ export DH_OPTIONS
 	dh  $@
 
 
-override dh_auto_configure:
+override_dh_auto_configure:
 	$(CURDIR)/src/configure
