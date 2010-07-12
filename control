@@ -2,7 +2,7 @@ Source: carmen
 Section: misc
 Priority: optional
 Maintainer: Andrea Colangelo <warp10@ubuntu.com>
-Build-Depends: debhelper (>= 7.0.50~), linux-headers-generic, libgtk2.0-dev
+Build-Depends: debhelper (>= 7.0.50~), linux-headers-2.6.35-7-generic, libgtk2.0-dev
 Standards-Version: 3.9.0
 Homepage: http://carmen.sourceforge.net/
 

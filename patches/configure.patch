@@ -1,7 +1,7 @@
 Index: carmen-0.7.4-beta/src/configure
 ===================================================================
---- carmen-0.7.4-beta.orig/src/configure	2010-07-12 12:15:41.380694219 +0200
-+++ carmen-0.7.4-beta/src/configure	2010-07-12 12:18:53.096684156 +0200
+--- carmen-0.7.4-beta.orig/src/configure	2010-07-12 15:16:39.751435371 +0200
++++ carmen-0.7.4-beta/src/configure	2010-07-12 15:33:20.327450131 +0200
 @@ -4,6 +4,9 @@
  use English;
  use FileHandle;
@@ -12,7 +12,44 @@ Index: carmen-0.7.4-beta/src/configure
  srand (time ^ $$ ^ unpack "%L*", `ps axww | gzip`);
  
  eval {
-@@ -271,19 +274,22 @@
+@@ -46,7 +49,10 @@
+ my (@user_libs, $header_dir);
+ 
+ foreach (@ARGV) {
+-  if (/help/ or /\-h/) {
++  #modifying the regex to make it match "-h" only, otherwise it clashes aginst
++  #--header
++  #if (/help/ or /\-h/) {
++  if (/help/ or /^\-h$/) {
+     my ($prog_name) = $PROGRAM_NAME =~ /([^\/]+)$/;
+     die<<EOF;
+ Usage: $prog_name [--help] [--prefix=<install path>] [options]
+@@ -71,8 +77,14 @@
+   if (/^-L/) {
+     push @user_libs, $_;
+   }
+-  if (/^--headers/) {
+-    $header_dir = $_;
++  #This check is buggy and doesn't work. BTW, I'm changing the interface of
++  #configure: headers are now passed with --headers=</path/to/headers> (exactely
++  #like --prefix does
++  #if (/^--headers/) {
++  #  $header_dir = $_;
++  if (/headers/) {
++     ($header_dir) = /headers=(.*)/;
++     print "GLI HEADER SONO IN: $header_dir\n";
+   } 
+   if (/nographics/) {
+     $nographics = 1;
+@@ -106,6 +118,7 @@
+   }
+   if (/prefix/) {
+     ($install_path) = /prefix=(.*)/;
++    print "IL PREFIX E: $install_path\n";
+   }
+   if (/oldlaser/) {
+     $arg_oldlaser = 1;
+@@ -271,19 +284,22 @@
  }
    print "found, version $gtk_major.$gtk_minor.$revision\n";
    
