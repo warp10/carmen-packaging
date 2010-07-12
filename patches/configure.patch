@@ -1,0 +1,50 @@
+Index: carmen-0.7.4-beta/src/configure
+===================================================================
+--- carmen-0.7.4-beta.orig/src/configure	2010-07-12 12:15:41.380694219 +0200
++++ carmen-0.7.4-beta/src/configure	2010-07-12 12:18:53.096684156 +0200
+@@ -4,6 +4,9 @@
+ use English;
+ use FileHandle;
+ 
++# This line is needed to turn autoflush on
++local $| = 1;
++
+ srand (time ^ $$ ^ unpack "%L*", `ps axww | gzip`);
+ 
+ eval {
+@@ -271,19 +274,22 @@
+ }
+   print "found, version $gtk_major.$gtk_minor.$revision\n";
+   
+-  print "Searching for libgdk_imlib.a...";
+-  if (-e "/usr/lib/libgdk_imlib.a" or 
+-      -e "/usr/local/lib/libgdk_imlib.a" or
+-      -e "/opt/gnome/lib/libgdk_imlib.a") {
+-      print " found\n";
+-  } else {
+-
+-      print " ${red}not found ${normal}\n\n";
+-      print "Could not find libgdk_imlib.a in /usr/lib,\n";
+-      print "/usr/local/lib, nor in /opt/gnome/lib/\n";
+-      print "Please install libgdk_imlib.a or\n${red}re-run $PROGRAM_NAME with --nographics${normal}\n";
+-      die "\n";
+-  }
++  #This library is deprecated and needs to be replaced. A workaroung must be
++  #found to compile CARMEN. In the meantime, I'm overridiing the check for
++  #libgdk_imlib.a to keep configure going on
++  #print "Searching for libgdk_imlib.a...";
++  #if (-e "/usr/lib/libgdk_imlib.a" or 
++  #    -e "/usr/local/lib/libgdk_imlib.a" or
++  #    -e "/opt/gnome/lib/libgdk_imlib.a") {
++  #    print " found\n";
++  #} else {
++
++  #    print " ${red}not found ${normal}\n\n";
++  #    print "Could not find libgdk_imlib.a in /usr/lib,\n";
++  #    print "/usr/local/lib, nor in /opt/gnome/lib/\n";
++  #    print "Please install libgdk_imlib.a or\n${red}re-run $PROGRAM_NAME with --nographics${normal}\n";
++  #    die "\n";
++  #}
+   
+   return $gtk_config;
+ }
