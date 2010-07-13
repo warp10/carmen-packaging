@@ -10,3 +10,6 @@ export DH_OPTIONS
 
 override_dh_auto_configure:
 	$(CURDIR)/src/configure --prefix=/usr/ --headers=/usr/src/linux-headers-2.6.35-7-generic/include --nojava --nopython
+
+override_dh_auto_build:
+	dh_auto_build --builddirectory=$(CURDIR)/src
