@@ -1,7 +1,7 @@
 Index: carmen-0.7.4-beta/src/configure
 ===================================================================
---- carmen-0.7.4-beta.orig/src/configure	2010-07-12 15:16:39.751435371 +0200
-+++ carmen-0.7.4-beta/src/configure	2010-07-12 15:33:20.327450131 +0200
+--- carmen-0.7.4-beta.orig/src/configure	2010-07-13 11:57:01.130022409 +0200
++++ carmen-0.7.4-beta/src/configure	2010-07-13 11:57:40.291023395 +0200
 @@ -4,6 +4,9 @@
  use English;
  use FileHandle;
@@ -24,7 +24,7 @@ Index: carmen-0.7.4-beta/src/configure
      my ($prog_name) = $PROGRAM_NAME =~ /([^\/]+)$/;
      die<<EOF;
  Usage: $prog_name [--help] [--prefix=<install path>] [options]
-@@ -71,8 +77,14 @@
+@@ -71,8 +77,13 @@
    if (/^-L/) {
      push @user_libs, $_;
    }
@@ -37,19 +37,10 @@ Index: carmen-0.7.4-beta/src/configure
 +  #  $header_dir = $_;
 +  if (/headers/) {
 +     ($header_dir) = /headers=(.*)/;
-+     print "GLI HEADER SONO IN: $header_dir\n";
    } 
    if (/nographics/) {
      $nographics = 1;
-@@ -106,6 +118,7 @@
-   }
-   if (/prefix/) {
-     ($install_path) = /prefix=(.*)/;
-+    print "IL PREFIX E: $install_path\n";
-   }
-   if (/oldlaser/) {
-     $arg_oldlaser = 1;
-@@ -271,19 +284,22 @@
+@@ -271,19 +282,22 @@
  }
    print "found, version $gtk_major.$gtk_minor.$revision\n";
    
@@ -85,3 +76,37 @@ Index: carmen-0.7.4-beta/src/configure
    
    return $gtk_config;
  }
+@@ -416,6 +430,9 @@
+ 
+ sub ask_oldlaser{
+ 
++  #Builders don't like questions. Defaulting to N:
++  print "New laser server will be used\n";
++  return 0;
+   print "Should the old laser server be used instead of the new one: [y/N] ";
+ 
+   my $oldlaser_install = <STDIN>;
+@@ -429,6 +446,10 @@
+ }
+ 
+ sub ask_nocpp{
++  
++  #Builders don't like questions. Defaulting to Y:
++  print "C++ tools will be installed by default\n";
++  return 1;
+ 
+   print "Should the C++ tools be installed for CARMEN: [Y/n] ";
+ 
+@@ -550,8 +571,11 @@
+ support, for example, if you will be working exclusively in simulation.
+ 
+ EOF
++  
+   print "Robot numbers [*]: ";
+-  my $type_string = <STDIN>;
++  #Builders don't like question. Defaulting to * (all):
++  #my $type_string = <STDIN>;
++  my $type_string = "*";
+   chomp $type_string;
+   if (length($type_string) == 0 or $type_string eq "*" or 
+       $type_string eq "$max") {
