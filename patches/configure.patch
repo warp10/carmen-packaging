@@ -1,7 +1,7 @@
 Index: carmen-0.7.4-beta/src/configure
 ===================================================================
---- carmen-0.7.4-beta.orig/src/configure	2010-07-13 11:57:01.130022409 +0200
-+++ carmen-0.7.4-beta/src/configure	2010-07-13 11:57:40.291023395 +0200
+--- carmen-0.7.4-beta.orig/src/configure	2010-07-13 12:13:58.590022770 +0200
++++ carmen-0.7.4-beta/src/configure	2010-07-13 12:24:01.326022675 +0200
 @@ -4,6 +4,9 @@
  use English;
  use FileHandle;
@@ -110,3 +110,25 @@ Index: carmen-0.7.4-beta/src/configure
    chomp $type_string;
    if (length($type_string) == 0 or $type_string eq "*" or 
        $type_string eq "$max") {
+@@ -943,7 +967,9 @@
+ sub write_out_config {
+   my ($gtk_config, $jpeg, $zlib, $libart) = @_;
+ 
+-  open CONFIG, "> global/carmen-config.c" or die 
++  #Since we are building from source tree, this fucking hardcoded link is wrong.
++  #open CONFIG, "> global/carmen-config.c" or die 
++  open CONFIG, "> src/global/carmen-config.c" or die
+     "Could not open global/carmen-config.c: $!\n";
+ 
+   my ($graphics_cflags, $graphics_libs);
+@@ -964,7 +990,9 @@
+ 
+ EOF
+ 
+-  open GLOBAL_INCLUDE, "< global/global.h" or die 
++  #see above...
++  #open GLOBAL_INCLUDE, "< global/global.h" or die 
++  open GLOBAL_INCLUDE, "< src/global/global.h" or die
+     "Couldn't open global/global.h for reading: $!\n";
+   my @global_headers = <GLOBAL_INCLUDE>;
+ 

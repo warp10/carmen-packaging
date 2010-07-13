@@ -1,1 +1,2 @@
 configure.patch
+missing_carmen-config.c.patch
