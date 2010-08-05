@@ -10,6 +10,3 @@ export CFLAGS += -U_FORTIFY_SOURCE -Wformat=0
 
 override_dh_auto_configure:
 	dh_auto_configure -- --prefix=/usr/ --headers=/usr/src/linux-headers-2.6.35-7-generic/include --nojava --nopython
-
-#override_dh_auto_build:
-#	dh_auto_build --builddirectory=$(CURDIR)/src
