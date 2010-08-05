@@ -1,7 +1,7 @@
 Index: carmen-0.7.4-beta/src/configure
 ===================================================================
---- carmen-0.7.4-beta.orig/src/configure	2008-07-28 11:34:58.000000000 +0200
-+++ carmen-0.7.4-beta/src/configure	2010-07-13 18:21:41.090335989 +0200
+--- carmen-0.7.4-beta.orig/src/configure	2010-08-05 18:01:16.316945030 +0200
++++ carmen-0.7.4-beta/src/configure	2010-08-05 18:13:50.692949868 +0200
 @@ -4,6 +4,9 @@
  use English;
  use FileHandle;
@@ -40,7 +40,20 @@ Index: carmen-0.7.4-beta/src/configure
    } 
    if (/nographics/) {
      $nographics = 1;
-@@ -271,19 +282,22 @@
+@@ -169,8 +180,10 @@
+ 
+ EOF
+ 
+-my $pwd = $ENV{'PWD'};
+-$pwd = `pwd` if (!defined($pwd));
++# For some strange reasons, $pwd is not set correctly.
++#my $pwd = $ENV{'PWD'};
++#$pwd = `pwd` if (!defined($pwd));
++my $pwd = `pwd`;
+ my ($cur_dir) = $pwd =~ m!(.*)/[^/]+!;
+ print OUTPUT "CARMEN_HOME = $cur_dir\n";
+ if ($gtk_config) {
+@@ -271,19 +284,22 @@
  }
    print "found, version $gtk_major.$gtk_minor.$revision\n";
    
@@ -76,7 +89,7 @@ Index: carmen-0.7.4-beta/src/configure
    
    return $gtk_config;
  }
-@@ -416,6 +430,9 @@
+@@ -416,6 +432,9 @@
  
  sub ask_oldlaser{
  
@@ -86,7 +99,7 @@ Index: carmen-0.7.4-beta/src/configure
    print "Should the old laser server be used instead of the new one: [y/N] ";
  
    my $oldlaser_install = <STDIN>;
-@@ -429,6 +446,10 @@
+@@ -429,6 +448,10 @@
  }
  
  sub ask_nocpp{
@@ -97,7 +110,7 @@ Index: carmen-0.7.4-beta/src/configure
  
    print "Should the C++ tools be installed for CARMEN: [Y/n] ";
  
-@@ -550,8 +571,11 @@
+@@ -550,8 +573,11 @@
  support, for example, if you will be working exclusively in simulation.
  
  EOF
@@ -110,7 +123,7 @@ Index: carmen-0.7.4-beta/src/configure
    chomp $type_string;
    if (length($type_string) == 0 or $type_string eq "*" or 
        $type_string eq "$max") {
-@@ -964,7 +988,7 @@
+@@ -964,7 +990,7 @@
  
  EOF
  
