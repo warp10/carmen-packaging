@@ -1,2 +1,3 @@
 configure.patch
 missing_carmen-config.c.patch
+Nclient.h_fix.patch
