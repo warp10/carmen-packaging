@@ -1,0 +1,59 @@
+Index: carmen-0.7.4-beta/src/Makefile.conf
+===================================================================
+--- carmen-0.7.4-beta.orig/src/Makefile.conf	2010-08-05 22:46:38.177963048 +0200
++++ carmen-0.7.4-beta/src/Makefile.conf	2010-08-05 22:48:25.980959879 +0200
+@@ -80,7 +80,9 @@
+ 
+ pathsearch = $(firstword $(wildcard $(addsuffix /$(1),$(subst :, ,$(PATH)))))
+ 
+-CFLAGS +=  -Wall -W -Werror -D_REENTRANT
++#Werror cause some deprecation warning being treated as error and cause FTBFS.
++#CFLAGS +=  -Wall -W -Werror -D_REENTRANT
++CFLAGS +=  -Wall -W -D_REENTRANT
+ CFLAGS += `getconf LFS_CFLAGS`
+ CFLAGS += -D_LARGEFILE64_SOURCE
+ ifdef NO_STRICT_ALIASING
+@@ -92,7 +94,9 @@
+   CXXFLAGS += -fPIC
+ endif
+ 
+-CXXFLAGS += -Wall -W -Werror -D_REENTRANT
++#Werror cause some deprecation warning being treated as error and cause FTBFS.
++#CXXFLAGS += -Wall -W -Werror -D_REENTRANT
++CXXFLAGS += -Wall -W -D_REENTRANT
+ 
+ ifdef CARMEN_DEBUG
+ CFLAGS += -g
+Index: carmen-0.7.4-beta/src/base/scoutlib/Ndirect.c
+===================================================================
+--- carmen-0.7.4-beta.orig/src/base/scoutlib/Ndirect.c	2010-08-05 22:44:37.692961951 +0200
++++ carmen-0.7.4-beta/src/base/scoutlib/Ndirect.c	2010-08-05 22:46:00.468944595 +0200
+@@ -3367,7 +3367,12 @@
+     data &= 0x7f;
+     data *= -1;
+   }
+-  return(data);
++  /* gcc fails here with the error: 'data' is used uninitialized in this
++    function. Since data is actually uninitalized, and extractdouble() isn't
++    called anywhere in the code, I'm returning 0 here just to keep gcc
++    going on */
++  /* return(data); */
++  return 0;
+ }
+ 
+ /*
+Index: carmen-0.7.4-beta/src/logtools/magick-utils.c
+===================================================================
+--- carmen-0.7.4-beta.orig/src/logtools/magick-utils.c	2010-08-05 22:48:44.384944525 +0200
++++ carmen-0.7.4-beta/src/logtools/magick-utils.c	2010-08-05 22:50:12.272945093 +0200
+@@ -1107,7 +1107,9 @@
+     fprintf( stderr, "done\n" );
+     DestroyImage(image);
+   }
+-  DestroyConstitute();
++  /* DestroyConstitute() has been renamed in ImageMagick-6.5.7 */
++  /* DestroyConstitute(); */
++  ConstituteComponentTerminus();
+   free(img.pixel);
+ }
+ 
