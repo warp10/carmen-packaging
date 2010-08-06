@@ -1,0 +1,48 @@
+Index: carmen-0.7.4-beta/src/Makefile
+===================================================================
+--- carmen-0.7.4-beta.orig/src/Makefile	2010-08-06 17:21:32.915942043 +0200
++++ carmen-0.7.4-beta/src/Makefile	2010-08-06 17:40:25.762959881 +0200
+@@ -36,10 +36,12 @@
+ 		fi \
+ 	done
+ 
++#Passing DESTDIR to make for every package to allow building in a proper
++#directory
+ INSTALL_RECURSE = $(SILENT) \
+ 	for i in $(PACKAGES) xxxx ; do \
+ 		if [ -d $$i ] ; then \
+-			if ! $(MAKE) install -C $$i $@ ; then \
++			if ! $(MAKE) install DESTDIR=$(DESTDIR) -C $$i $@ ; then \
+                                 exit -1; \
+                         fi; \
+ 		fi \
+Index: carmen-0.7.4-beta/src/Makefile.conf
+===================================================================
+--- carmen-0.7.4-beta.orig/src/Makefile.conf	2010-08-06 17:18:00.219952249 +0200
++++ carmen-0.7.4-beta/src/Makefile.conf	2010-08-06 17:21:29.195970779 +0200
+@@ -72,11 +72,20 @@
+ MAN_DIR = $(CARMEN_HOME)/man
+ DOC_DIR = $(CARMEN_HOME)/doc
+ 
+-GLOBAL_INC_DIR = $(INSTALL_PATH)/include
+-GLOBAL_SHARED_DIR = $(INSTALL_PATH)/lib
+-GLOBAL_LIB_DIR = $(INSTALL_PATH)/lib
+-GLOBAL_BIN_DIR = $(INSTALL_PATH)/bin
+-GLOBAL_MAN_DIR = $(INSTALL_PATH)/man
++#For some weird reasons, the prefix passed to $install_path (in src/configure)
++#isn't passed to $(INSTALL_PATH). I'm overriding all this using a $(DESTDIR)
++#to pass a good path from debian/rules
++#GLOBAL_INC_DIR = $(INSTALL_PATH)/include
++#GLOBAL_SHARED_DIR = $(INSTALL_PATH)/lib
++#GLOBAL_LIB_DIR = $(INSTALL_PATH)/lib
++#GLOBAL_BIN_DIR = $(INSTALL_PATH)/bin
++#GLOBAL_MAN_DIR = $(INSTALL_PATH)/man
++GLOBAL_INC_DIR = $(DESTDIR)/include
++GLOBAL_SHARED_DIR = $(DESTDIR)/lib
++GLOBAL_LIB_DIR = $(DESTDIR)/lib
++GLOBAL_BIN_DIR = $(DESTDIR)/bin
++GLOBAL_MAN_DIR = $(DESTDIR)/man
++
+ 
+ pathsearch = $(firstword $(wildcard $(addsuffix /$(1),$(subst :, ,$(PATH)))))
+ 

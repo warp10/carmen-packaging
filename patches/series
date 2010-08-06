@@ -1,3 +1,4 @@
 configure.patch
 missing_carmen-config.c.patch
 FTBFS.patch
+install_path.patch
