@@ -41,3 +41,16 @@ Description: Documentation for CARMEN
  It is modular software designed to provide basic navigation primatives
  including: base and sensor control, logging, obstacle avoidance,
  localization, path planning, and mapping. 
+
+Package: carmen-dev
+Section: devel
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Suggests: carmen-doc
+Description: Header for CARMEN
+ This package contains headers for CARMEN.
+ .
+ CARMEN is an open-source collection of software for mobile robot control.
+ It is modular software designed to provide basic navigation primatives
+ including: base and sensor control, logging, obstacle avoidance,
+ localization, path planning, and mapping. 
