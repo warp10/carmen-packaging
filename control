@@ -29,18 +29,18 @@ Description: Data files for CARMEN
  including: base and sensor control, logging, obstacle avoidance,
  localization, path planning, and mapping.
 
-Package: carmen-doc
-Section: doc
-Architecture: all
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Suggests: carmen, carmen-data
-Description: Documentation for CARMEN
- This package provides some documentation for CARMEN.
- .
- CARMEN is an open-source collection of software for mobile robot control.
- It is modular software designed to provide basic navigation primatives
- including: base and sensor control, logging, obstacle avoidance,
- localization, path planning, and mapping. 
+#Package: carmen-doc
+#Section: doc
+#Architecture: all
+#Depends: ${shlibs:Depends}, ${misc:Depends}
+#Suggests: carmen, carmen-data
+#Description: Documentation for CARMEN
+# This package provides some documentation for CARMEN.
+# .
+# CARMEN is an open-source collection of software for mobile robot control.
+# It is modular software designed to provide basic navigation primatives
+# including: base and sensor control, logging, obstacle avoidance,
+# localization, path planning, and mapping. 
 
 Package: carmen-dev
 Section: devel
