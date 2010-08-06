@@ -35,7 +35,7 @@ Architecture: all
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Suggests: carmen, carmen-data
 Description: Documentation for CARMEN
- This packages provide some documentation for CARMEN.
+ This package provides some documentation for CARMEN.
  .
  CARMEN is an open-source collection of software for mobile robot control.
  It is modular software designed to provide basic navigation primatives
