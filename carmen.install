@@ -1,0 +1,2 @@
+debian/tmp/bin/*	usr/bin
+debian/tmp/lib/*	usr/lib
