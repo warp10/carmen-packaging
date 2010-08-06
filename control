@@ -19,7 +19,7 @@ Description: The Carnegie Mellon Robot Navigation Toolkit
 
 Package: carmen-data
 Architecture: all
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: ${misc:Depends}
 Suggests: carmen, carmen-doc
 Description: Data files for CARMEN
  This package contains a few maps to be used with CARMEN.
@@ -32,7 +32,7 @@ Description: Data files for CARMEN
 #Package: carmen-doc
 #Section: doc
 #Architecture: all
-#Depends: ${shlibs:Depends}, ${misc:Depends}
+#Depends: ${misc:Depends}
 #Suggests: carmen, carmen-data
 #Description: Documentation for CARMEN
 # This package provides some documentation for CARMEN.
