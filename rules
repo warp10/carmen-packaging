@@ -1,8 +1,8 @@
 #!/usr/bin/make -f
 
-#export DH_VERBOSE=1
+export DH_VERBOSE=1
 export DH_OPTIONS
-export CFLAGS += -U_FORTIFY_SOURCE -Wformat=0
+#export CFLAGS += -U_FORTIFY_SOURCE -Wformat=0
 
 %:
 	dh --sourcedirectory=src $@
