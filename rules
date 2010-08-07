@@ -9,3 +9,7 @@ export DH_OPTIONS
 
 override_dh_auto_configure:
 	dh_auto_configure -- --prefix=/usr/ --headers=/usr/src/linux-headers-2.6.35-7-generic/include --nojava --nopython
+
+override_dh_install:
+	dh_install
+	cd debian/carmen/usr/bin && for i in `ls`; do ln -s $$i carmen_$$i; done;
