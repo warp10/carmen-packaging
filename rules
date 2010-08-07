@@ -12,4 +12,4 @@ override_dh_auto_configure:
 
 override_dh_install:
 	dh_install
-	cd debian/carmen/usr/bin && for i in `ls`; do ln -s $$i carmen_$$i; done;
+	cd debian/carmen/usr/bin && for i in `ls`; do mv $$i carmen_$$i; done;
