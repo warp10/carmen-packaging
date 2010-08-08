@@ -55,7 +55,7 @@ Description: Documentation for CARMEN
 Package: carmen-dev
 Section: devel
 Architecture: all
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: ${misc:Depends}
 Suggests: carmen, carmen-data, carmen-doc
 Description: Header for CARMEN
  This package contains headers for CARMEN.
