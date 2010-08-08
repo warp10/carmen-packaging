@@ -1,12 +1,13 @@
 Index: carmen-0.7.4-beta/src/Makefile.conf
 ===================================================================
---- carmen-0.7.4-beta.orig/src/Makefile.conf	2010-08-08 11:06:04.196184614 +0200
-+++ carmen-0.7.4-beta/src/Makefile.conf	2010-08-08 11:06:21.536183911 +0200
-@@ -20,12 +20,16 @@
+--- carmen-0.7.4-beta.orig/src/Makefile.conf	2010-08-08 11:55:59.993169856 +0200
++++ carmen-0.7.4-beta/src/Makefile.conf	2010-08-08 11:59:06.496370403 +0200
+@@ -20,12 +20,17 @@
    else
    ifeq (../../../Makefile.vars, $(wildcard ../../../Makefile.vars))
      include ../../../Makefile.vars
 +  #This path is needed to compile stuff in doc/
++  else
 +  ifeq (../src/Makefile.vars, $(wildcard ../src/Makefile.vars))
 +    include ../src/Makefile.vars
    else
