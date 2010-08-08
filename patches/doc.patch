@@ -1,0 +1,21 @@
+Index: carmen-0.7.4-beta/src/Makefile.conf
+===================================================================
+--- carmen-0.7.4-beta.orig/src/Makefile.conf	2010-08-08 11:06:04.196184614 +0200
++++ carmen-0.7.4-beta/src/Makefile.conf	2010-08-08 11:06:21.536183911 +0200
+@@ -20,12 +20,16 @@
+   else
+   ifeq (../../../Makefile.vars, $(wildcard ../../../Makefile.vars))
+     include ../../../Makefile.vars
++  #This path is needed to compile stuff in doc/
++  ifeq (../src/Makefile.vars, $(wildcard ../src/Makefile.vars))
++    include ../src/Makefile.vars
+   else
+     $(error You need to run 'configure' first)
+   endif
+   endif
+   endif
+   endif
++  endif
+ endif
+ 
+ ifndef CC
