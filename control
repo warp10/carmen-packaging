@@ -2,7 +2,17 @@ Source: carmen
 Section: misc
 Priority: optional
 Maintainer: Andrea Colangelo <warp10@ubuntu.com>
-Build-Depends: debhelper (>= 7.0.50~), linux-headers-generic, libgtk2.0-dev, libwrap0-dev, libjpeg62-dev, libmagickwand-dev, doxygen, swig, texlive-latex-base, ghostscript
+Build-Depends:
+ debhelper (>= 7.0.50~),
+ linux-headers-generic,
+ libgtk2.0-dev,
+ libwrap0-dev,
+ libjpeg62-dev,
+ libmagickwand-dev,
+ doxygen,
+ swig,
+ texlive-latex-base,
+ ghostscript
 Standards-Version: 3.9.0
 Homepage: http://carmen.sourceforge.net/
 
